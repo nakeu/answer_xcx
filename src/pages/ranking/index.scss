@@ -1,0 +1,111 @@
+.ranking{
+  padding: 22px;
+  .rankingList{
+    border-radius: 14px;
+    background: #fff;
+    .departmentBox{
+      height: 150px;
+      border-bottom: 1px solid #FAFAFA;
+      &:nth-child(1){
+        background: linear-gradient(180deg, #FFFFFF 0%, #FAEDD3 100%);
+        .rankNum{
+          width: 96px !important;
+          height: 60px !important;
+          background: url('../../asset/images/no1.png') 100% / contain no-repeat !important;
+          border-radius: inherit !important;
+          text-indent: -9999px;
+        }
+        .name{
+          color: #BF9401 !important;
+        }
+      }
+      &:nth-child(2) {
+        background: linear-gradient(180deg, #FFFFFF 0%, #DBE6EC 100%);
+        .rankNum{
+          width: 96px !important;
+          height: 60px !important;
+          background: url('../../asset/images/no2.png') 100% / contain no-repeat !important;
+          border-radius: inherit !important;
+          text-indent: -9999px;
+        }
+        .name{
+          color: #818DAA !important;
+        }
+      }
+      &:nth-child(3) {
+        background: linear-gradient(180deg, #FFFFFF 0%, #ECE2DB 100%);
+        .rankNum{
+          width: 96px !important;
+          height: 60px !important;
+          background: url('../../asset/images/no3.png') 100% / contain no-repeat !important;
+          border-radius: inherit !important;
+          text-indent: -9999px;
+        }
+        .name{
+          color: #94645F !important;
+        }
+      }
+      .at-row{
+        height: 150px;
+        .rankBox{
+          display: inline-block;
+          vertical-align: top;
+          width: 134px;
+          height: 150px;
+          position: relative;
+          .rankNum{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 100%;
+            background: #F5ADA6;
+            text-align: center;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+          }
+        }
+        .info{
+          box-sizing: border-box;
+          height: 150px;
+          display: inline-block;
+          vertical-align: top;
+          padding-top: 30px;
+          .name{
+            color: #212121;
+            font-size: 36px;
+            font-weight: bold;
+          }
+          .stepNum{
+            color: #80848E;
+            font-size: 28px;
+            margin-top: 8px;
+            &::before{
+              content: '';
+              display: inline-block;
+              width: 28px;
+              height: 28px;
+              background: url('../../asset/images/go_icon.png') 100% / contain no-repeat;
+              vertical-align: middle;
+              margin-top: -4px;
+              margin-right: 5px;
+            }
+          }
+        }
+        .at-col-4{
+          text-align: center;
+          text{
+            background: #F2994A;
+            border-radius: 28px;
+            color: #fff;
+            padding: 5px 15px;
+            margin-bottom: 10px;
+            display: inline-block;
+          }
+        }
+      }
+    } 
+  }
+}

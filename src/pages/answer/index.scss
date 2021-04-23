@@ -1,0 +1,66 @@
+.list{
+  padding: 38px;
+  .answerBox{
+    width: 100%;
+    height: 238px;
+    border-radius: 16px;
+    margin-bottom: 38px;
+    overflow: hidden;
+    position: relative;
+    // background: url('../../asset/images/list_bg.png') 100% / contain no-repeat;
+    background-size: contain;
+    background-origin: 100%;
+    background-repeat: no-repeat;
+    // &:nth-child(1) {
+    //   background: url('../../asset/images/list_bg.png') 100% / contain no-repeat;
+    // }
+    a{
+      display: inline-block;
+      z-index: 1;
+    }
+    &.disable{
+      &::before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: rgba(71, 15, 9, 0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+    }
+    .cover{
+      width: 100%;
+    }
+    .status{
+      position: absolute;
+      bottom: 20px;
+      right: 28px;
+      z-index: 3;
+      .Progress{
+        display: inline-block;
+        vertical-align: middle;
+        width: 100px;
+      }
+      .star{
+        width: 38px;
+        height: 38px;
+        margin-left: 20px;
+        vertical-align: middle;
+        margin-top: -5px;
+      }
+      .lock{
+        width: 40px;
+        height: 42px;
+        vertical-align: middle;
+        margin-top: -5px;
+      }
+      text{
+        color: #fff;
+        vertical-align: middle;
+        font-size: 24px;
+      }
+    }
+  }
+}

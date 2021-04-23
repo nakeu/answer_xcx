@@ -1,0 +1,132 @@
+page{
+  background: #fff;
+}
+.map{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+.stepBox{
+  box-sizing: border-box;
+  width: 95%;
+  padding: 36px;
+  border-radius: 34px;
+  background: #fff;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  .exchangeBtn{
+    box-sizing: border-box;
+    width: 140px;
+    height: 140px;
+    padding-top: 28px;
+    border-radius: 50%;
+    background: #C92C1C;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    text{
+      font-size: 48px;
+      display: inline-block;
+    }
+  }
+  .title{
+    font-size: 32px;
+    color: #000;
+    margin-top: 60px;
+    .text{
+      color: #498AE9;
+      font-size: 28px;
+      vertical-align: middle;
+    }
+  }
+  .at-row{
+    text-align: center;
+    font-size: 30px;
+    color: #000;
+    .at-col{
+      margin-top: 20px;
+    }
+    .name{
+      color: #80848E;
+      .jt{
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #C92C1C;
+        text-align: center;
+        color: #fff;
+        font-size: 22px;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 23px;
+      }
+    }
+    text{
+      color: #C92C1C;
+    }
+  }
+}
+
+.popup{
+  // box-sizing: border-box;
+  width: 540px;
+  border-radius: 14px;
+  background: #fff;
+  position: relative;
+  margin: 0 auto;
+  .headerBox{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 38px;
+    text-align: center;
+    background: #C92C1C;
+    border-radius: 14px 14px 34px 34px;
+    color: #fff;
+    font-size: 36px;
+  }
+  .from{
+    padding: 56px 56px 32px 56px;
+    .fromItem{
+      height: 80px;
+      line-height: 80px;
+      border-bottom: 1px solid #EDEDED;
+      color: #C4C4C4;
+      font-size: 36px;
+      &.active{
+        color: #333;
+      }
+    }
+    .at-input{
+      margin: 0;
+      input{
+        font-size: 36px;
+      }
+      &::after{
+        border-color: #EDEDED;
+      }
+    }
+    .at-button--primary{
+      background-color: #C92C1C;
+      border-color: #C92C1C;
+      margin-top: 40px;
+    }
+  }
+  .textBox{
+    text-align: center;
+    font-size: 32px;
+    color: #999;
+    padding: 50px 20px;
+    text{
+      color: #C92C1C;
+      display: block;
+    }
+  }
+}
