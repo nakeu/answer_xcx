@@ -5,9 +5,14 @@
         mode="widthFix"
         src="https://dt.zyxtkt.cn/dtimg/map.png"
       />
+
+    <view class="track">
+      <view class="track_1" v-for="(item, index) in data.teams" :key="index" :class="'p'+Math.round(item.rate * 100)"><view class="bm">{{item.ttitle}}</view></view>
+    </view>
+    
     <view class="stepBox">
       <view class="exchangeBtn" @tap="exchange">兑换天数<text>GO</text></view>
-      <view class="title">当前已走到 <view class="text">新民主主义革命时期 <AtIcon value='chevron-right'></AtIcon></view></view>
+      <view class="title">当前已走到 <view class="text" @tap="isZs = !isZs">新民主主义革命时期 <AtIcon value='chevron-right'></AtIcon></view></view>
       <view class='at-row at-row--wrap'>
         <view class='at-col at-col-4'>
           <view class="name">累计步数</view>
@@ -17,10 +22,10 @@
           <view class="name">累计行走天数</view>
           {{data.total_days}}
         </view>
-        <view class='at-col at-col-4'>
+        <navigator url="/pages/ranking/index" class='at-col at-col-4'>
           <view class="name">排名 <view class="jt"><AtIcon value='chevron-right'></AtIcon></view></view>
           <text>{{data.rank}}</text>
-        </view>
+        </navigator>
         <view class='at-col at-col-4'>
           <view class="name">兑换比例</view>
           {{data.exchange_rate}}步=1天
@@ -79,6 +84,14 @@
         </view>
       </view>
     </AtCurtain>
+    <AtFloatLayout 
+      :isOpened="isZs"
+      :onClose="handleCloseZs">
+        <view class="zsxj">
+          <view class="headerBox absolute">知识详解</view>
+          {{ data.current_question_cate&&data.current_question_cate.desc_str }}
+        </view>
+    </AtFloatLayout>
   </view>
 </template>
 
@@ -88,6 +101,7 @@ import { baseUrl } from '../../config'
 import http from "../../utils/request";
 import api from "../../config/api"
 import './index.scss' 
+import './position.scss'
 export default {
   data () {
     return {
@@ -99,6 +113,7 @@ export default {
       teamDataIndex: null,
       name: '',
       isSucc: false,
+      isZs: false
     }
   },
   methods: {
@@ -113,6 +128,9 @@ export default {
     },
     onCloseSucc() {
       this.isSucc = false
+    },
+    handleCloseZs() {
+      this.isZs = false
     },
     async exchange() {
       if(Taro.getStorageSync('need_info')){

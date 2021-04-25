@@ -10,7 +10,7 @@ const api = {
   baseinfo: '/xcx/wuser/update-baseinfo', // 部门信息
   subKey: '/xcx/question/answer', // 提交答案
   teamRank: '/xcx/rank/team', // 部门排行榜
-  
+  teamUser: '/xcx/rank/team-user', // 部门内用户排行榜
 }
 
 export default api

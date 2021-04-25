@@ -3,88 +3,34 @@
     <view class="department at-row at-row__justify--between at-row__align--center">
       <view class='at-col at-col-8'>
         <view class="rankBox">
-              <view class="rankNum no2">4</view>
+              <view class="rankNum" :class="{no1: teamRank.rank === 1, no2: teamRank.rank === 2, no3: teamRank.rank === 3}"></view>
             </view>
             <view class="info">
-              <view class="name">财务部</view>
-              <view class="stepNum">20113步</view>
+              <view class="name">{{teamRank.ttitle}}</view>
+              <view class="stepNum">{{teamRank.steps}}步</view>
             </view>
       </view>
       <view class='at-col at-col-4'>
         <text>贡献值</text>
-        <view>2563天</view>
+        <view>{{teamRank.days}}天</view>
       </view>
     </view>
     <view class="rankingList">
-      <view class="departmentBox">
+      <view class="departmentBox" v-for="(item, index) in usersList" :key="index">
         <view class='at-row at-row__justify--between at-row__align--center'>
           <view class='at-col at-col-8'>
             <view class="rankBox">
-              <view class="rankNum">4</view>
+              <view class="rankNum">{{item.rank}}</view>
             </view>
-             <AtAvatar circle image='https://jdc.jd.com/img/200'></AtAvatar>
+             <AtAvatar circle :image='item.avatar'></AtAvatar>
             <view class="info">
-              <view class="name">财务部</view>
-              <view class="stepNum">20113步</view>
+              <view class="name">{{item.real_name}}</view>
+              <view class="stepNum">{{item.steps}}步</view>
             </view>
           </view>
           <view class='at-col at-col-4'>
             <text>贡献值</text>
-            <view>2563天</view>
-          </view>
-        </view>
-      </view>
-      <view class="departmentBox">
-        <view class='at-row at-row__justify--between at-row__align--center'>
-          <view class='at-col at-col-8'>
-            <view class="rankBox">
-              <view class="rankNum">4</view>
-            </view>
-            <AtAvatar circle image='https://jdc.jd.com/img/200'></AtAvatar>
-            <view class="info">
-              <view class="name">财务部</view>
-              <view class="stepNum">20113步</view>
-            </view>
-          </view>
-          <view class='at-col at-col-4'>
-            <text>贡献值</text>
-            <view>2563天</view>
-          </view>
-        </view>
-      </view>
-      <view class="departmentBox">
-        <view class='at-row at-row__justify--between at-row__align--center'>
-          <view class='at-col at-col-8'>
-            <view class="rankBox">
-              <view class="rankNum">4</view>
-            </view>
-            <AtAvatar circle image='https://jdc.jd.com/img/200'></AtAvatar>
-            <view class="info">
-              <view class="name">财务部</view>
-              <view class="stepNum">20113步</view>
-            </view>
-          </view>
-          <view class='at-col at-col-4'>
-            <text>贡献值</text>
-            <view>2563天</view>
-          </view>
-        </view>
-      </view>
-      <view class="departmentBox">
-        <view class='at-row at-row__justify--between at-row__align--center'>
-          <view class='at-col at-col-8'>
-            <view class="rankBox">
-              <view class="rankNum">4</view>
-            </view>
-            <AtAvatar circle image='https://jdc.jd.com/img/200'></AtAvatar>
-            <view class="info">
-              <view class="name">财务部</view>
-              <view class="stepNum">20113步</view>
-            </view>
-          </view>
-          <view class='at-col at-col-4'>
-            <text>贡献值</text>
-            <view>2563天</view>
+            <view>{{item.days}}天</view>
           </view>
         </view>
       </view>
@@ -94,17 +40,31 @@
 
 <script>
 import Taro from "@tarojs/taro";
+import http from "../../../utils/request"
+import api from "../../../config/api"
 import "./index.scss";
 
 export default {
   data() {
     return {
-      msg: "我的",
-      days: 3,
+      usersList: [],
+      teamRank: {},
+      id: 0
     };
   },
-  mounted() {
-    
+  methods: {
+    getData() {
+      http.request(api.teamUser, {tnumber: this.id}).then(res => {
+        if(res.code === 0) {
+          this.usersList = res.data.user_rank
+          this.teamRank = res.data.team_rank
+        }
+      })
+    }
+  },
+  onLoad(option) {
+    this.id = option.id
+    this.getData()
   },
 };
 </script>

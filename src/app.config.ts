@@ -1,6 +1,5 @@
 export default {
   pages: [
-    // 'pages/ranking/info/index',
     'pages/intro/index',
     'pages/index/index',
     'pages/answer/index',

@@ -1,7 +1,7 @@
 <template>
   <view class="ranking">
     <view class="rankingList">
-      <view class="departmentBox" v-for="(item, index) in list" :key="index">
+      <navigator :url="'/pages/ranking/info/index?id='+item.tnumber" class="departmentBox" v-for="(item, index) in list" :key="index">
         <view class='at-row at-row__justify--between at-row__align--center'>
           <view class='at-col at-col-8'>
             <view class="rankBox">
@@ -17,7 +17,7 @@
             <view>{{item.days}}天</view>
           </view>
         </view>
-      </view>
+      </navigator>
     </view>
   </view>
 </template>
